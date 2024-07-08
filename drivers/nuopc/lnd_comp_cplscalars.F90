@@ -66,7 +66,7 @@ contains
 
     ! initialize fldptr to zero
     call ESMF_FieldGet(field, farrayPtr=fldptr2d, rc=rc)
-    if (ChkErr(rc,__LINE__,u_FILE_u)) return
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, line=__LINE__, file=__FILE__)) return
     fldptr2d(:,:) = 0.0
 
   end subroutine SetScalarField
